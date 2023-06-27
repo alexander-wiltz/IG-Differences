@@ -12,6 +12,7 @@
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
             <property name="javax.persistence.jdbc.url"    value="jdbc:h2:file:C:\workspace\IG-Differences\src\main\resources\database\database;DB_CLOSE_ON_EXIT=FALSE" />
             <!-- jdbc:h2:mem:~ This config hold the database in the Heap during execution. -->
+            <!-- http://www.h2database.com/html/cheatSheet.html -->
             <property name="javax.persistence.jdbc.user" value="sa" />
             <property name="javax.persistence.jdbc.password" value="sa" />
 
