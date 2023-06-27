@@ -21,7 +21,10 @@ public class UserDAO {
      */
     public List<UserDTO> getAllUsers() {
         EntityManager entityManager = databaseConnector.getEntityManager();
-        List<UserDTO> users = entityManager.createQuery("SELECT u FROM UserDTO u").getResultList();
+
+        String sql = "SELECT u FROM UserDTO u";
+        List<UserDTO> users = entityManager.createQuery(sql, UserDTO.class).getResultList();
+
         entityManager.close();
 
         if(users == null || users.isEmpty()) {
@@ -54,8 +57,8 @@ public class UserDAO {
         neoUser.setPosts(user.getPosts());
         neoUser.setCountFollowing(user.getCountFollowing());
         neoUser.setCountUnfollow(user.getCountUnfollow());
-        neoUser.setInserted(user.getInserted());
-        neoUser.setLastseen(user.getLastseen());
+        neoUser.setInsertedTimestamp(user.getInsertedTimestamp());
+        neoUser.setLastseenTimestamp(user.getLastseenTimestamp());
 
         entityManager.getTransaction().commit();
         entityManager.close();

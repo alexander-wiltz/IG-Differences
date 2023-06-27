@@ -4,13 +4,13 @@
 
         <description>Hibernate EntityManager</description>
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <!--jta-data-source></jta-data-source-->
+        <jta-data-source>java:jboss/datasources/instagram</jta-data-source>
         <class>de.alwi.instagram.dto.UserDTO</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
-            <property name="javax.persistence.jdbc.url"    value="jdbc:h2:file:C:\workspace\IG-Differences\src\main\resources\database\database;DB_CLOSE_ON_EXIT=FALSE" />
+            <property name="javax.persistence.jdbc.url"    value="jdbc:h2:file:~/database/database;DB_CLOSE_ON_EXIT=FALSE" />
             <!-- jdbc:h2:mem:~ This config hold the database in the Heap during execution. -->
             <!-- http://www.h2database.com/html/cheatSheet.html -->
             <property name="javax.persistence.jdbc.user" value="sa" />

@@ -1,7 +1,12 @@
 package de.alwi.instagram.services;
 
 import de.alwi.instagram.dto.UserDTO;
+import lombok.extern.slf4j.Slf4j;
 
+import javax.ejb.Stateless;
+
+@Slf4j
+@Stateless
 public class UserService {
 
     /**

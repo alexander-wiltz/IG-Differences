@@ -1,8 +1,11 @@
 package de.alwi.instagram.dto;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Getter
@@ -10,11 +13,14 @@ import java.time.LocalDateTime;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.EXTERNAL_PROPERTY, property = "type")
+@JsonTypeName("Account")
 @Entity
-@Table(name = "user")
+@Table(name = "account")
 public class UserDTO {
 
     @Id
+    @PrimaryKeyJoinColumn
     @Column(name = "user_id", nullable = false)
     private long userId;
 
@@ -54,9 +60,9 @@ public class UserDTO {
 
     @ToString.Exclude
     @Column(name = "inserted_timestamp")
-    private LocalDateTime inserted;
+    private LocalDateTime insertedTimestamp;
 
     @ToString.Exclude
     @Column(name = "last_seen")
-    private LocalDateTime lastseen;
+    private LocalDateTime lastseenTimestamp;
 }
